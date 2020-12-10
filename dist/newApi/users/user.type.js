@@ -1,9 +1,0 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var type = "\nscalar Date\n\ntype userGroupType{\nlabel: String\nvalue: String\n}\ntype User{\n    id: ID\n    createdAt:Date\n    email:String\n    firstName: String\n    lastName:String\n    role: String\n    adminId: String\n    mobileNumber:String\n    url:String\n    password:String\n    isVerified:Boolean,\n    emailVerificationToken:String,\n    resetPasswordToken:String,\n    resetPasswordExpires:Date,\n    image: String\n    userGroup:String\n}\n\ntype tokenResponse{\n    userId:ID\n    token:String\n    createdAt:Date\n}\n\ntype userResponse{\n    user:User\n    token:String\n}\n\n\n\n  type AdminUsers{\n      user(cursor:String):[User]\n      count:Int\n  }\n\n\n\ntype Query {\n    user:User\n    adminUsers(cursor:String):[User]\n    userById(id:ID):User\n    userByEmailId(email:String):User\n    userByExamCenter(examCenter:String):[User]\n\n}\n\ntype Mutation {\n  createUser(email:String,firstName:String,lastName:String,mobileNumber:String,password:String,url:String,userGroup:String):User\n  createAdminUser(email:String,firstName:String,lastName:String,mobileNumber:String,password:String,url:String):User\n  removeUser(id:ID!):User\n  login(email:String,password:String):userResponse\n  createUserFromAdmin(email:String,firstName:String,lastName:String,mobileNumber:String,password:String,userGroup:String):User\n  updateUser(id:ID,email:String,firstName:String,lastName:String,mobileNumber:String,password:String,userGroup:String):User\n  urlExists(url:String):User\n  emailAccountVerification(id:ID,code:String):User\n\n\n}\n\n\n";
-var _default = type;
-exports.default = _default;
