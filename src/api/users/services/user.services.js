@@ -5,6 +5,7 @@ export const user = async (_, args, { models: { user }, authUser }, info) => {
   return authUser
 }
 
+
 export const userById = async (_, data, { models, authUser }, info) => {
   const user1 = await models.user.findById(data.id).lean()
   console.log(user1)
