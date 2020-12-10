@@ -1,13 +1,13 @@
 import {
   users,
-  adminUsers,
+  
   userById,
   createUser,
-  createAdminUser,
+ 
   updateUser,
   removeUser,
   login,
-  createUserFromAdmin
+  
 } from './services/user.services.js'
 import { requiresLogin } from '../common/util'
 
