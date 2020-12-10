@@ -1,0 +1,67 @@
+scalar Date
+
+type userGroupType{
+label: String
+value: String
+}
+type User{
+    id: ID
+    createdAt:Date
+    email:String
+    firstName: String
+    lastName:String
+    role: String
+    adminId: String
+    userGroup:userGroupType
+    mobileNumber:String
+    url:String
+    password:String
+    isVerified:Boolean,
+    resetPasswordToken:String,
+    resetPasswordExpires:Date,
+    image: String
+}
+
+type tokenResponse{
+    userId:ID
+    token:String
+    createdAt:Date
+}
+
+type userResponse{
+    user:User
+    token:tokenResponse
+}
+
+type Counter {
+    count: Int!
+    countStr: String
+  }
+
+  type AdminUsers{
+      user:[User]
+      count:Int
+  }
+
+
+
+type Query {
+    user:User
+    adminUsers:[User]
+    userById(id:ID):User
+    userByEmailId(email:String):User
+    userByExamCenter(examCenter:String):[User]
+}
+
+type Mutation {
+    createUser(email:String,name:String,mobileNumber:String,password:String,url:String):User
+    updateUser(id:ID,email:String,name:String,mobileNumber:String,password:String):User
+    removeUser(id:ID!):User
+    login(email:String,password:String):userResponse
+    createUserFromAdmin(email:String,name:String,mobileNumber:String,password:String):User
+
+}
+
+type Subscription {
+    counter: Counter!
+  }
